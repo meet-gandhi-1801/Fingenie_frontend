@@ -1305,7 +1305,7 @@ const TransactionsPage = () => {
       setDeletingId(null);
     }
   };
-
+  {/*added new chANGES */ }
   const totalIncome = filtered
     .filter(t => t.type === 'credit')
     .reduce((sum, t) => sum + t.amount, 0);
