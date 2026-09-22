@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   LayoutDashboard, ArrowLeftRight, MessageSquare,
-  Target, Lightbulb, Settings, LogOut,
+  Target, Lightbulb, LogOut,
   Sparkles, Menu, X, Bell
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
     try {
       const refreshToken = localStorage.getItem('refreshToken');
       if (refreshToken) await authAPI.logout({ refreshToken });
-    } catch (err) {}
+    } catch (err) { }
     logout();
     navigate('/login');
   };

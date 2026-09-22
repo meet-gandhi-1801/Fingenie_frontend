@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Plus, Target, X, Sparkles,
-  TrendingUp, Calendar, Trash2
+  Trash2
 } from 'lucide-react';
 import Layout from '../components/Layout';
 import { goalAPI } from '../services/api';

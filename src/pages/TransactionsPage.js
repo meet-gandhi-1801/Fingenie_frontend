@@ -320,7 +320,7 @@ const SMSModal = ({ onClose, onSave }) => {
     }
   };
 
-  
+
 
   const handleSave = async () => {
     setSaving(true);
@@ -1085,7 +1085,7 @@ const StatementModal = ({ onClose, onSave }) => {
                     color: '#FF4D4D',
                     bg: 'rgba(255,77,77,0.1)'
                   },
-                          {
+                  {
                     label: 'Total Credit',
                     value: `₹${editedRows
                       .filter((_, i) => selectedRows.includes(i) && editedRows[i].type === 'credit')
@@ -1262,10 +1262,6 @@ const TransactionsPage = () => {
     fetchTransactions();
   }, []);
 
-  useEffect(() => {
-    filterTransactions();
-  }, [transactions, search, selectedCategory]);
-
   const fetchTransactions = async () => {
     try {
       const response = await transactionAPI.getAll();
@@ -1279,7 +1275,7 @@ const TransactionsPage = () => {
     }
   };
 
-  const filterTransactions = () => {
+  useEffect(() => {
     let result = [...transactions];
 
     if (selectedCategory !== 'All') {
@@ -1296,7 +1292,7 @@ const TransactionsPage = () => {
     }
 
     setFiltered(result);
-  };
+  }, [transactions, search, selectedCategory]);
 
   const handleDelete = async (id) => {
     setDeletingId(id);
@@ -1668,25 +1664,25 @@ const TransactionsPage = () => {
 
       {/* Modals */}
       <AnimatePresence>
-  {showAddModal && (
-    <AddTransactionModal
-      onClose={() => setShowAddModal(false)}
-      onSave={fetchTransactions}
-    />
-  )}
-  {showSMSModal && (
-    <SMSModal
-      onClose={() => setShowSMSModal(false)}
-      onSave={fetchTransactions}
-    />
-  )}
-  {showStatementModal && (
-    <StatementModal
-      onClose={() => setShowStatementModal(false)}
-      onSave={fetchTransactions}
-    />
-  )}
-</AnimatePresence>
+        {showAddModal && (
+          <AddTransactionModal
+            onClose={() => setShowAddModal(false)}
+            onSave={fetchTransactions}
+          />
+        )}
+        {showSMSModal && (
+          <SMSModal
+            onClose={() => setShowSMSModal(false)}
+            onSave={fetchTransactions}
+          />
+        )}
+        {showStatementModal && (
+          <StatementModal
+            onClose={() => setShowStatementModal(false)}
+            onSave={fetchTransactions}
+          />
+        )}
+      </AnimatePresence>
     </Layout>
   );
 };

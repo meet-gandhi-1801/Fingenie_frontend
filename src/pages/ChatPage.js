@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Sparkles, Trash2, User } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Send, Sparkles, Trash2 } from 'lucide-react';
 import Layout from '../components/Layout';
 import { chatAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';

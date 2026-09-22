@@ -52,7 +52,7 @@ const AuthSuccessPage = () => {
       navigate(destination, { replace: true });
     }, 100);
 
-  }, []); // Empty deps — run once only
+  }, [login, navigate, searchParams]); // Now includes appropriate deps
 
   return (
     <div style={{

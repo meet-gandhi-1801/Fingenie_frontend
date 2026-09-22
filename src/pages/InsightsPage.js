@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Lightbulb, RefreshCw, TrendingUp,
+  RefreshCw,
   AlertTriangle, AlertCircle, Info, CheckCircle2
 } from 'lucide-react';
 import Layout from '../components/Layout';

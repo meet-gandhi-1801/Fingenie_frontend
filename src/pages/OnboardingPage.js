@@ -13,7 +13,6 @@ const OnboardingPage = () => {
   const { user, login } = useAuth();
 
   // If Google user, skip name step
-  const isGoogleUser = user?.email && !user?.needsName;
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -60,7 +59,7 @@ const OnboardingPage = () => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      const { data } = await api.put('/auth/update-profile', {
+      await api.put('/auth/update-profile', {
         name: formData.name,
         monthlyIncome: Number(formData.monthlyIncome) || 0,
         occupation: formData.occupation.replace(/^.+?\s/, ''), // remove emoji
